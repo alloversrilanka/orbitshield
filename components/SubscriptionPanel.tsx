@@ -1,3 +1,5 @@
+"use client";
+
 export default function SubscriptionPanel() {
   return (
     <div className="subscription-panel">

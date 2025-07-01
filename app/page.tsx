@@ -1,3 +1,5 @@
+"use client";
+
 import Navigation from "../components/Navigation";
 import DashboardHeader from "../components/DashboardHeader";
 import StateCard from "../components/StateCard";

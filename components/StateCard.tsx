@@ -1,3 +1,5 @@
+"use client";
+
 interface StateCardProps {
   title: string;
   value: string;

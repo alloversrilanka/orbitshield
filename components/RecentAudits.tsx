@@ -1,3 +1,5 @@
+"use client";
+
 interface AuditItem {
   title: string;
   status: "Completed" | "In Progress" | "Overdue";
