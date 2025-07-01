@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700@display=swap");
+
+:root {
+  --surface-background: #000000;
+  --spacing-lg: 20px;
+  --spacing-2xl: 32px;
+  --spacing-3: 12px;
+  --spacing-3xl: 40px;
+  --radius-sm: 8px;
+  --brand-color: #5445fe;
+  --font-size-sm: 16px;
+  --spacing-6: 24px;
+  --spacing-sm: 12px;
+  --card-background: #0d0d0d;
+  --border-color: rgba(112, 115, 241, 0.5);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+  background-color: var(--surface-background);
+  color: var(--text-primary);
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--surface-background);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.blur-background {
+  backdrop-filter: blur(100px);
+}
+
+.glassmorphism {
+  backdrop-filter: blur(29.16px);
+  border: 0.4px solid rgba(109, 111, 255, 0.77);
+  background: rgba(176, 177, 255, 0.2);
+}
