@@ -116,6 +116,7 @@ export default function Dashboard() {
           background: rgba(132, 133, 235, 0.25);
           border-radius: 50%;
           filter: blur(100px);
+          animation: floatBlur1 12s ease-in-out infinite;
         }
 
         .blur-effect-2 {
@@ -127,6 +128,43 @@ export default function Dashboard() {
           background: rgba(132, 133, 235, 0.15);
           border-radius: 50%;
           filter: blur(100px);
+          animation: floatBlur2 15s ease-in-out infinite;
+        }
+
+        @keyframes floatBlur1 {
+          0%,
+          100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0.25;
+          }
+          25% {
+            transform: translate(20px, -15px) scale(1.1);
+            opacity: 0.3;
+          }
+          50% {
+            transform: translate(-15px, 10px) scale(0.9);
+            opacity: 0.2;
+          }
+          75% {
+            transform: translate(10px, -5px) scale(1.05);
+            opacity: 0.35;
+          }
+        }
+
+        @keyframes floatBlur2 {
+          0%,
+          100% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0.15;
+          }
+          33% {
+            transform: translate(-10px, 20px) scale(1.2);
+            opacity: 0.2;
+          }
+          66% {
+            transform: translate(15px, -10px) scale(0.8);
+            opacity: 0.1;
+          }
         }
 
         @media (max-width: 1200px) {
