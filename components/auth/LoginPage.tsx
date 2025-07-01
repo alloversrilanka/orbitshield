@@ -230,6 +230,10 @@ export default function LoginPage({ onSwitchToRegister }: LoginPageProps) {
           bottom: 0;
           pointer-events: none;
           z-index: 3;
+          background-image: url("https://framerusercontent.com/images/hjP8uzUZTR37o2stMnClW7UMYG0.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
         }
 
         .background-image .blackhole-particles::before {
