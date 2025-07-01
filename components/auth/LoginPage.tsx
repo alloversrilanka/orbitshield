@@ -36,7 +36,9 @@ export default function LoginPage({ onSwitchToRegister }: LoginPageProps) {
 
   return (
     <div className="login-page">
-      <div className="background-image"></div>
+      <div className="background-image">
+        <div className="blackhole-particles"></div>
+      </div>
 
       <div className="login-form-container">
         <button className="back-button" onClick={() => window.history.back()}>
@@ -197,19 +199,108 @@ export default function LoginPage({ onSwitchToRegister }: LoginPageProps) {
         .background-image::after {
           content: "";
           position: absolute;
-          top: -50%;
-          left: -50%;
-          width: 200%;
-          height: 200%;
+          top: 50%;
+          left: 50%;
+          width: 300px;
+          height: 300px;
+          margin: -150px 0 0 -150px;
           background: radial-gradient(
             circle,
-            rgba(84, 69, 254, 0.1) 0%,
-            transparent 30%,
-            rgba(132, 133, 235, 0.05) 60%,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.7) 15%,
+            rgba(84, 69, 254, 0.3) 30%,
+            rgba(132, 133, 235, 0.2) 50%,
+            rgba(84, 69, 254, 0.1) 70%,
             transparent 100%
           );
-          animation: pulse 6s ease-in-out infinite;
+          border-radius: 50%;
+          animation: blackholeRotate 8s linear infinite;
           z-index: 2;
+        }
+
+        .background-image {
+          position: relative;
+        }
+
+        .background-image .blackhole-particles {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          pointer-events: none;
+          z-index: 3;
+        }
+
+        .background-image .blackhole-particles::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 400px;
+          height: 400px;
+          margin: -200px 0 0 -200px;
+          background:
+            radial-gradient(
+              2px 2px at 50px 50px,
+              rgba(84, 69, 254, 0.8),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 100px 150px,
+              rgba(132, 133, 235, 0.6),
+              transparent
+            ),
+            radial-gradient(
+              3px 3px at 200px 100px,
+              rgba(84, 69, 254, 0.7),
+              transparent
+            ),
+            radial-gradient(
+              2px 2px at 300px 200px,
+              rgba(132, 133, 235, 0.5),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 150px 300px,
+              rgba(84, 69, 254, 0.6),
+              transparent
+            );
+          border-radius: 50%;
+          animation: spiralParticles 6s linear infinite;
+        }
+
+        .background-image .blackhole-particles::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 500px;
+          height: 500px;
+          margin: -250px 0 0 -250px;
+          background:
+            radial-gradient(
+              1px 1px at 80px 120px,
+              rgba(255, 255, 255, 0.4),
+              transparent
+            ),
+            radial-gradient(
+              2px 2px at 180px 80px,
+              rgba(255, 255, 255, 0.3),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 320px 180px,
+              rgba(255, 255, 255, 0.5),
+              transparent
+            ),
+            radial-gradient(
+              3px 3px at 120px 320px,
+              rgba(255, 255, 255, 0.2),
+              transparent
+            );
+          border-radius: 50%;
+          animation: spiralParticles 10s linear infinite reverse;
         }
 
         @keyframes gradientMove {
@@ -222,15 +313,41 @@ export default function LoginPage({ onSwitchToRegister }: LoginPageProps) {
           }
         }
 
-        @keyframes pulse {
-          0%,
-          100% {
-            transform: scale(0.8) rotate(0deg);
-            opacity: 0.3;
+        @keyframes blackholeRotate {
+          0% {
+            transform: rotate(0deg) scale(1);
+            filter: blur(0px);
+          }
+          25% {
+            transform: rotate(90deg) scale(1.05);
+            filter: blur(1px);
           }
           50% {
-            transform: scale(1.2) rotate(180deg);
-            opacity: 0.6;
+            transform: rotate(180deg) scale(0.95);
+            filter: blur(2px);
+          }
+          75% {
+            transform: rotate(270deg) scale(1.1);
+            filter: blur(1px);
+          }
+          100% {
+            transform: rotate(360deg) scale(1);
+            filter: blur(0px);
+          }
+        }
+
+        @keyframes spiralParticles {
+          0% {
+            transform: rotate(0deg) scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: rotate(180deg) scale(0.3);
+            opacity: 0.3;
+          }
+          100% {
+            transform: rotate(360deg) scale(0.1);
+            opacity: 0;
           }
         }
 
