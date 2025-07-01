@@ -36,7 +36,9 @@ export default function LoginPage({ onSwitchToRegister }: LoginPageProps) {
 
   return (
     <div className="login-page">
-      <div className="background-image"></div>
+      <div className="background-image">
+        <div className="blackhole-particles"></div>
+      </div>
 
       <div className="login-form-container">
         <button className="back-button" onClick={() => window.history.back()}>
@@ -170,6 +172,187 @@ export default function LoginPage({ onSwitchToRegister }: LoginPageProps) {
           height: 100%;
           background: url("https://cdn.builder.io/api/v1/image/assets/TEMP/5a60e0054137e9d8b9cb0f1d7ae58dbb34fcd680?width=1650")
             lightgray 50% / cover no-repeat;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .background-image::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
+            45deg,
+            rgba(84, 69, 254, 0.1) 0%,
+            rgba(132, 133, 235, 0.15) 25%,
+            rgba(84, 69, 254, 0.05) 50%,
+            rgba(132, 133, 235, 0.2) 75%,
+            rgba(84, 69, 254, 0.1) 100%
+          );
+          background-size: 400% 400%;
+          animation: gradientMove 8s ease-in-out infinite;
+          z-index: 1;
+        }
+
+        .background-image::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 300px;
+          height: 300px;
+          margin: -150px 0 0 -150px;
+          background: radial-gradient(
+            circle,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(0, 0, 0, 0.7) 15%,
+            rgba(84, 69, 254, 0.3) 30%,
+            rgba(132, 133, 235, 0.2) 50%,
+            rgba(84, 69, 254, 0.1) 70%,
+            transparent 100%
+          );
+          border-radius: 50%;
+          animation: blackholeRotate 8s linear infinite;
+          z-index: 2;
+        }
+
+        .background-image {
+          position: relative;
+        }
+
+        .background-image .blackhole-particles {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          pointer-events: none;
+          z-index: 3;
+          background-image: url("https://framerusercontent.com/images/hjP8uzUZTR37o2stMnClW7UMYG0.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+        }
+
+        .background-image .blackhole-particles::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 400px;
+          height: 400px;
+          margin: -200px 0 0 -200px;
+          background:
+            radial-gradient(
+              2px 2px at 50px 50px,
+              rgba(84, 69, 254, 0.8),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 100px 150px,
+              rgba(132, 133, 235, 0.6),
+              transparent
+            ),
+            radial-gradient(
+              3px 3px at 200px 100px,
+              rgba(84, 69, 254, 0.7),
+              transparent
+            ),
+            radial-gradient(
+              2px 2px at 300px 200px,
+              rgba(132, 133, 235, 0.5),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 150px 300px,
+              rgba(84, 69, 254, 0.6),
+              transparent
+            );
+          border-radius: 50%;
+          animation: spiralParticles 6s linear infinite;
+        }
+
+        .background-image .blackhole-particles::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 500px;
+          height: 500px;
+          margin: -250px 0 0 -250px;
+          background:
+            radial-gradient(
+              1px 1px at 80px 120px,
+              rgba(255, 255, 255, 0.4),
+              transparent
+            ),
+            radial-gradient(
+              2px 2px at 180px 80px,
+              rgba(255, 255, 255, 0.3),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 320px 180px,
+              rgba(255, 255, 255, 0.5),
+              transparent
+            ),
+            radial-gradient(
+              3px 3px at 120px 320px,
+              rgba(255, 255, 255, 0.2),
+              transparent
+            );
+          border-radius: 50%;
+          animation: spiralParticles 10s linear infinite reverse;
+        }
+
+        @keyframes gradientMove {
+          0%,
+          100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+
+        @keyframes blackholeRotate {
+          0% {
+            transform: rotate(0deg) scale(1);
+            filter: blur(0px);
+          }
+          25% {
+            transform: rotate(90deg) scale(1.05);
+            filter: blur(1px);
+          }
+          50% {
+            transform: rotate(180deg) scale(0.95);
+            filter: blur(2px);
+          }
+          75% {
+            transform: rotate(270deg) scale(1.1);
+            filter: blur(1px);
+          }
+          100% {
+            transform: rotate(360deg) scale(1);
+            filter: blur(0px);
+          }
+        }
+
+        @keyframes spiralParticles {
+          0% {
+            transform: rotate(0deg) scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: rotate(180deg) scale(0.3);
+            opacity: 0.3;
+          }
+          100% {
+            transform: rotate(360deg) scale(0.1);
+            opacity: 0;
+          }
         }
 
         .login-form-container {
@@ -180,6 +363,95 @@ export default function LoginPage({ onSwitchToRegister }: LoginPageProps) {
           display: flex;
           flex-direction: column;
           position: relative;
+          overflow: hidden;
+        }
+
+        .login-form-container::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background:
+            radial-gradient(
+              2px 2px at 10px 20px,
+              rgba(84, 69, 254, 0.3),
+              transparent
+            ),
+            radial-gradient(
+              2px 2px at 40px 70px,
+              rgba(132, 133, 235, 0.4),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 90px 40px,
+              rgba(84, 69, 254, 0.5),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 130px 80px,
+              rgba(132, 133, 235, 0.3),
+              transparent
+            ),
+            radial-gradient(
+              2px 2px at 160px 30px,
+              rgba(84, 69, 254, 0.4),
+              transparent
+            );
+          background-repeat: repeat;
+          background-size: 200px 100px;
+          animation: floatingParticles 20s linear infinite;
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        .login-form-container::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background:
+            radial-gradient(
+              1px 1px at 200px 50px,
+              rgba(84, 69, 254, 0.2),
+              transparent
+            ),
+            radial-gradient(
+              2px 2px at 250px 100px,
+              rgba(132, 133, 235, 0.3),
+              transparent
+            ),
+            radial-gradient(
+              1px 1px at 300px 150px,
+              rgba(84, 69, 254, 0.4),
+              transparent
+            );
+          background-repeat: repeat;
+          background-size: 300px 200px;
+          animation: floatingParticles 25s linear infinite reverse;
+          pointer-events: none;
+          z-index: 1;
+        }
+
+        @keyframes floatingParticles {
+          0% {
+            transform: translateY(0px) translateX(0px);
+          }
+          25% {
+            transform: translateY(-10px) translateX(5px);
+          }
+          50% {
+            transform: translateY(-20px) translateX(-5px);
+          }
+          75% {
+            transform: translateY(-10px) translateX(10px);
+          }
+          100% {
+            transform: translateY(0px) translateX(0px);
+          }
         }
 
         .back-button {
@@ -188,6 +460,8 @@ export default function LoginPage({ onSwitchToRegister }: LoginPageProps) {
           border: none;
           cursor: pointer;
           margin-bottom: 20px;
+          position: relative;
+          z-index: 2;
         }
 
         .login-form {
@@ -197,6 +471,8 @@ export default function LoginPage({ onSwitchToRegister }: LoginPageProps) {
           align-items: center;
           gap: 80px;
           flex: 1;
+          position: relative;
+          z-index: 2;
         }
 
         .form-header {
